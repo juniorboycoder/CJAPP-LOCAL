@@ -1,0 +1,276 @@
+{% block body %}
+
+
+      
+
+
+    
+
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  {% load staticfiles %}
+  
+ 
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>djangoapp</title>
+
+  
+</head>
+
+<style>
+    .row > div{
+      padding: 10px;
+      background: #ddd;
+      border: 1px solid #fff;
+      height: 1000px auto;
+    }
+    .row{
+      margin: 40px auto;
+    }
+</style>
+
+<body class="grey lighten-3"">
+
+  <!-- NAVBAR -->
+  <div class="navbar-fixed">
+    <nav class="z-depth-0 yellow lighten-4">
+      <div class="nav-wrapper container">
+        <a href="{% url 'djapp:homeapp' %}" class="brand-logo blue-text" style="font-family: cursive;"> <i class="material-icons blue-text">filter_drama</i> Cjapp</a>
+
+            <!-- NAVBAR DROPDOWN -->
+        <a href="#" class="sidenav-trigger" data-target="mobile dropdownlinks">
+          <i class="material-icons blue-text">menu</i>
+        </a>
+        
+        <a href="{% url 'djapp:AddNotes' pk=user.pk %}" class=" black-text right sidenav-trigger tooltipped" data-tooltip="You"   >
+            <i class="material-icons">account_circle</i>
+              
+        </a>
+
+        <a href="{% url 'djapp:logout_user' %}" class="black-text right sidenav-trigger tooltipped"  data-tooltip="Logout">
+        <i class="material-icons">exit_to_app</i>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="">
+               
+            <a  href="{% url 'djapp:AddNotes' pk=user.pk %}" class=" modal-trigger black-text tooltipped" data-target="modal-account" data-tooltip="You">
+               
+             <i class="material-icons">account_circle</i>
+           
+           </a>
+          
+         </li>
+          <li class="">
+              <a href="{% url 'djapp:logout_user' %}" class="grey-text" id="logout">Logout</a>
+          </li>
+            
+            
+          </span>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <ul id="mobile dropdownlinks" class="sidenav">
+    <li class="logged-in">
+      <a href="{% url 'djapp:AddNotes' pk=user.pk %}" class="blue-text modal-trigger" style="font-family: cursive;" data-target="modal-account"> {{user.username}} <i class="material-icons">person</i></a>
+    </li>
+      <li class="logged-in">
+        <a href="{% url 'djapp:logout_user' %}" class="grey-text" id="logout">Logout</a>
+      </li>
+      
+      
+    </span>
+  </ul>
+
+
+
+
+
+
+  <div class="container">
+    <h1  class="flow-text" >TAILORING BUSINESS APP ON {{ carpentrypostsdetail.created|date:"F,d,Y"}} </h1>
+    
+    {% if user.is_superuser %}
+    
+
+    
+
+    
+        
+          <form  action="{% url 'djapp:tailoring-delete' tailoringpostsdetail.id %}" method="post" >
+
+
+              {% csrf_token %}
+              
+                <button  type="submit" <i class="material-icons">delete_forever</i></button>
+                    
+                
+            
+          </form>
+        
+
+        
+          <form  action="{% url 'djapp:tailoring-update' tailoringpostsdetail.id %}" method="post" >
+
+
+              {% csrf_token %}
+              
+                <button  type="submit" <i class="material-icons">edit</i></button>
+                    
+                
+              
+          </form>
+      
+        
+      {%endif%}
+
+
+    <div class="row">
+  
+    
+
+    
+      <div class="col s12 m6 l6">
+          <p class="red-text"> DAILY QUESTION</p>
+        <hr>
+          <p class=" flow-text black-text">{{ tailoringpostsdetail.title }} ?? on {{ tailoringpostsdetail.created }} by {{ tailoringpostsdetail.user }} </p>
+          <hr>
+
+          
+          <a href="{% url 'djapp:addcomment2'  pk=tailoringpostsdetail.pk %}" class="white-text  btn" >ANSWER THE QUESTION</a>
+       
+          <hr>
+        
+          <p><a href="{% url 'djapp:user'  %}" class="white-text  btn" >SEE OTHER USER PROFILE</a></p>
+                  
+       
+
+
+
+
+          <p class="red-text">ANSWERS:</p>
+
+        {%for comment in tailoringpostsdetail.commention.all %}
+          
+          <p class="red-text"> Answer:</p> {{comment.body}}
+          
+          
+          <p class="blue-text">{{comment.created}} by  {{comment.user}}<i class="material-icons">person_pin</i></p>
+         
+          {% if user.is_superuser %}
+    
+
+    
+
+    
+        
+              <form  action="{% url 'djapp:tailoringcomments-delete' comment.id %}" method="post" >
+
+
+                  {% csrf_token %}
+                  
+                    <button  type="submit" <i class="material-icons">delete_forever</i></button>
+                        
+                    
+                
+              </form>
+          {%endif%}
+          
+          
+        {%endfor%}
+        
+       
+
+         
+      
+
+      </div>  
+          
+      
+    
+      <div class="col s12 m6 l6">
+
+         
+           
+        <p  class="red-text">DAILY FACTS ABOUT TAILORING IN NIGERIA ON {{ tailoringpostsdetail.created|date:"F,d,Y"}}  </p>
+        <hr>
+        </br>
+        <div class="card">
+            <div class="card-image" >
+              <img src="{{ tailoringpostsdetail.imagedailyupdate.url }}" alt="">
+              
+            </div>
+
+           
+            
+
+            <div class="card-content">
+              <span class="card-title">posted by {{tailoringpostsdetail.user}} </span>
+               
+              <span class="card-title">TOPIC:</span>
+              
+              <p  class="black-text modal-trigger" data-target="business">{{ tailoringpostsdetail.latesttailoringupdate }}</p>
+                
+            </div>
+            <div class="card-action">
+                
+                <p> see more on
+                    <a href="{{ tailoringpostsdetail.linktofurtherreading }}" class="grey-text modal-trigger" data-target="business">{{ tailoringpostsdetail.linktofurtherreading }}</a>
+                </p>  
+                
+            </div>
+        </div>
+        
+      </div>
+
+      
+    
+    </div>
+    
+  </div>
+ 
+
+  
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  
+
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>
+
+ 
+
+
+
+</body>
+</html>
+
+{%endblock%}
+
+
+
+
+
+
+  

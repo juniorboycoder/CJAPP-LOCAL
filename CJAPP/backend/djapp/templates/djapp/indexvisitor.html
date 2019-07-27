@@ -1,0 +1,770 @@
+
+
+{% block body%}
+
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+  {% load staticfiles %}
+  
+ 
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  
+  
+  
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  
+
+
+  
+
+
+
+
+
+  <title>djangoapp</title>
+
+  
+</head>
+<style>
+
+  .section{
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+  }
+</style>
+
+
+
+
+<body class="grey lighten-3"">
+
+  <!-- NAVBAR -->
+  <div class="navbar-fixed">
+    <nav class="z-depth-0 yellow lighten-4">
+      <div class="nav-wrapper container">
+        <a href="{% url 'djapp:mainpagevisitor' %}" class="brand-logo blue-text" style="font-family: cursive;"> <i class="material-icons blue-text">filter_drama</i> Cjapp</a>
+
+            <!-- NAVBAR DROPDOWN -->
+        <a href="#" class="sidenav-trigger" data-target="mobile dropdownlinks">
+          <i class="material-icons blue-text">menu</i>
+        </a>
+
+         
+        <a href="#Connect" class="  flow-text black-text sidenav-trigger right " style="font-family: cursive;" >about</a>
+
+        <a href="{% url 'djapp:register' %}" class="flow-text black-text sidenav-trigger right " style="font-family: cursive;" data-target="modal-signup">Signup</a>  
+        
+        
+        
+          
+        
+       
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          
+
+            <li class="connect">
+              <a href="#services" class="grey-text" id="services">About</a>
+            </li>
+            
+            <li class="">
+              <a href="{% url 'djapp:login' %}" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+            </li>
+            <li class="">
+              <a href="{% url 'djapp:register' %}" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+            </li>
+          </span>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <ul id="mobile dropdownlinks" class="sidenav">
+     <li class="">
+        <a href="{% url 'djapp:login' %}" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+     </li>
+     <li class="">
+        <a href="{% url 'djapp:register' %}" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+     </li>
+     
+     
+    <li class="connect">
+              <a href="#Connect" class="grey-text" id="Connect">About</a>
+    </li>
+    
+  </ul>
+
+
+  
+
+  <!--BUSINESS2 ID MODAL -->
+  <div id="business2" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">choose a business</span>
+                  <p class="brown-text">SELECT A BUSINESS TYPE</p>
+                  
+                </div>
+                <div class="card-action">
+                    <a class='dropdown-trigger btn-small ' href='{% url 'djapp:login' %}' data-target=''>1.CARPENTRY</a> 
+                    <a class='dropdown-trigger btn-small ' href='{% url 'djapp:login' %}' data-target=''>2.TAILORING</a> 
+                    <a class='dropdown-trigger btn-small ' href='{% url 'djapp:login' %}' data-target=''>3.PAINTING</a> 
+                    <a class='dropdown-trigger btn-small ' href='{% url 'djapp:login' %}' data-target=''>4.COMMODITY SELLING</a> 
+                    
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+  <!--RELIGION1 ID MODAL -->
+  <div id="religion1" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">choose a religion</span>
+                  <p class="brown-text">SELECT A RELIGION TYPE</p>
+                  
+                </div>
+                <div class="card-action">
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>1.TRADITION</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>2.ISLAM</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>3.CHRISTAINITY</a> 
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+  <!--SPORTS1 ID MODAL -->
+  <div id="sports1" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">choose a sport</span>
+                  <p class="brown-text">SELECT A SPORT TYPE</p>
+                  
+                </div>
+                <div class="card-action">
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>1.SOCCER</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>2.TENNIS</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>3.BASKETBALL</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>4.VOLLEYBALL</a> 
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+
+  <!--SCIENCE1 ID MODAL -->
+  <div id="science1" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">choose a science</span>
+                  <p class="brown-text">SELECT A SCIENCE TYPE</p>
+                  
+                </div>
+                <div class="card-action">
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>1,COMPUTER SCIENCE</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>2.CHEMISTRY</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>3.PHYSICS</a> 
+                    <a class='dropdown-trigger btn-small' href='{% url 'djapp:login' %}' data-target=''>4.MATHEMATICS</a> 
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+
+
+  <!--FEATURES ID MODAL -->
+  <div id="features1" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">Answer daily questions</span>
+                  <p class="brown-text">Answer daily questions asked by admin about a choosen career field</p>
+                  <br>
+                  <p class="brown-text">NOTE: contrary answers about a  career field question will be deleted by admin.</p>
+                  
+                </div>
+                <div class="card-action">
+                    
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+  <div id="features2" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">Store your notes on your account</span>
+                  <p class="brown-text">Store notes taken from application on your account .e.g from the daily facts session</p>
+                  <br>
+                  <p class="brown-text">Your are notes are visible to only you</p>
+                  
+                </div>
+                <div class="card-action">
+                    
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+
+  <div id="features3" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">Choose a Career</span>
+                  <p class="brown-text">Choose a Career and select the field of career choosen</p>
+                  
+                </div>
+                <div class="card-action">
+                    
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+  
+  <div id="features4" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">See Daily Facts about a career field</span>
+                  <p class="brown-text">See Daily Facts about a career field posted by admin.</p>
+                  
+                </div>
+                <div class="card-action">
+                    
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+  <div id="features5" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">Become an admin</span>
+                  <p class="brown-text">Answer a lot of daily questions to have admin priviledges like asking a question. </p>
+                  <p class="brown-text">The progressbar is shown in your profile. </p>
+                  
+                </div>
+                <div class="card-action">
+                    
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+
+
+
+  <div id="features6" class="modal">
+    <div class="modal-content">
+        
+            <div class="card">
+                <div class="card-image">
+                  
+                  
+                </div>
+                <div class="card-content">
+                  <span class="card-title">View other users profile </span>
+                  <p class="brown-text"> View other usersprofile on the apps thats answers a daily question</p>
+                  
+                </div>
+                <div class="card-action">
+                    
+                  
+                </div>
+
+                
+            </div>
+        
+
+        
+    </div>
+  </div>
+
+
+
+
+  
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content '>
+   {%for post in carpentryposts %}
+      
+      <p><a class='blue-text' href="{{post.get_absolute_url}}">carpentry business on {{post.created|date:"F,d,Y"}}</a></p>
+
+
+   {%endfor%}
+
+    
+   
+    
+    
+  </ul>
+
+  <ul id='dropdown2' class='dropdown-content'>
+      
+    
+      {%for posted in tailoringposts %}
+      
+        <p><a class='blue-text' href="{{posted.get_absolute_url}}">tailoring business on {{posted.created|date:"F,d,Y"}}</a></p>
+
+
+      {%endfor%} 
+       
+      
+  </ul>
+  
+
+
+
+
+  <!-- welcome top page1 -->
+  
+    <div class="container brown lighten-1"  id="services" style="margin-top: 40px;">
+      <div class="row">
+        
+        <div class="col s12 l12 ">
+          <!-- tabs -->
+          <ul class="tabs  brown lighten-1">
+            <li class="tab col s4 ">
+        
+              <a href="#Djapp" class="active white-text text-darken-4">Cjapp</a>
+            </li>
+            <li class="tab col s4">
+              <a href="#Signup" class="white-text text-darken-4">Already signedup??</a>
+            </li>
+
+            <li class="tab col s4">
+              <a href="#Features" class="white-text text-darken-4">Features</a>
+            </li>
+          </ul>
+          <div id="Djapp" class="col s12">
+              <p class="flow-text white-text text-darken-4" >Welcome to Cjapp</p>
+              <p class="white-text">Cjapp is a carreer app</p>
+              
+          </div>
+          <div id="Signup" class="col s12">
+              <p class="flow-text white-text text-darken-4">Already signedup??</p>
+              <p class="white-text">click to <a class="black-text" href="{% url 'djapp:login' %}">login </a> or  <a class="black-text" href="{% url 'djapp:register' %}">sign up</a> to access full aplication</p>
+             
+          </div>
+          <div id="Features" class="col s12">
+            <p class="flow-text white-text text-darken-4">Signup & login to access the following features:</p>
+            <p class="flow-text" >
+              
+
+              <a  href="#" class=" flow-text white-text  modal-trigger btn btn-large brown pulse "  data-target="features1">1. Answer </a> 
+
+              <a  href="#" class="flow-text white-text  modal-trigger btn brown pulse"  data-target="features2">2. Store </a> 
+
+              <a  href="#" class="flow-text white-text  modal-trigger btn  brown pulse "  data-target="features3">3. Choose </a> 
+
+
+              <a  href="#" class="flow-text white-text  modal-trigger btn brown pulse "  data-target="features4">4. Daily </a> 
+
+              <a  href="#" class=" white-text  modal-trigger btn  brown pulse "  data-target="features5">5.Become</a> 
+              
+              <a  href="#" class=" white-text  modal-trigger btn  brown pulse "  data-target="features6">6.View</a> 
+
+            
+            
+            
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+       
+      
+      
+    <div  class="container"  style="margin-top: 20px;"> Career Apps Avaliable:</div> 
+      
+        
+
+
+
+    
+  <!-- CAREER CHOICES -->
+  <div class="container" style="margin-top: 40px;">
+    
+    
+    
+       
+
+    <div class="row">
+
+      
+       
+
+        <div class="col s4 m4 l3">
+          <div class="card ">
+              <div class="card-image materialboxed" >
+                <img  src="{% static 'djapp/business project background2.png'%}" class="responsive-img">
+                <span class="card-title ">Business</span>
+              </div>
+              <div class="card-content">
+
+                  
+                  
+                  <!-- Dropdown Trigger -->
+                  <a href="#" class="flow-text blue-text modal-trigger " data-target="business2">choose a business</a>
+              </div>
+
+                  
+              
+          </div>
+        
+          
+        </div>
+
+      
+
+        <div class="col s4 m4 l3">
+          <div class="card">
+              <div class="card-image materialboxed">
+                <img src="{% static 'djapp/religion project wallpaper.png'%}" class="responsive-img">
+                <span class="card-title">Religion</span>
+              </div>
+              <div class="card-content">
+               
+        
+                  
+                  <!-- Dropdown Trigger -->
+                  <a class=' flow-text blue-text dropdown-trigger modal-trigger  ' data-target="religion1">choose a religion </a>
+               
+              </div>
+          </div>
+        </div>
+
+          <div class="col s4 m4 l3">
+              <div class="card">
+                  <div class="card-image materialboxed">
+                    <img src="{% static 'djapp/business project background3.png'%}" class="responsive-img">
+                    <span class="card-title">Sport</span>
+                  </div>
+                  <div class="card-content">
+                   
+               
+                      <!-- Dropdown Trigger -->
+                      <a class='  blue-text flow-text dropdown-trigger modal-trigger  '  data-target='sports1'>choose a sport </a>
+                   
+                  </div>
+              </div>
+      
+              
+          </div>
+
+          
+
+
+          <div class="col s4 m4 l3">
+            <div class="card">
+                <div class="card-image materialboxed">
+                  <img src="{% static 'djapp/djscience.png'%}" class="responsive-img">
+                  <span class="card-title">Science</span>
+                </div>
+                <div class="card-content">
+                 
+          
+                    
+                    <!-- Dropdown Trigger -->
+                    <a class='  blue-text flow-text dropdown-trigger  modal-trigger '  data-target='science1'>choose science </a>
+                 
+                </div>
+            </div>
+          </div>
+      
+      
+          
+      </div>
+    </div>
+
+
+    
+
+    <!-- services / tabs -->
+    <div class="container  scrollspy" id="services">
+      <div class="row">
+        
+        <div class="col s12 l12 ">
+          <!-- tabs -->
+          <ul class="tabs">
+            <li class="tab col s6 ">
+        
+              <a href="#aboutauthor" class="active indigo-text text-darken-4">About Author</a>
+            </li>
+            <li class="tab col s6">
+              <a href="#aboutapp" class="indigo-text text-darken-4">ABOUT APP</a>
+            </li>
+          </ul>
+          <div id="aboutauthor" class="col s12">
+
+            <img src="{% static 'djapp/juniorauthor.png'%}" alt="Author" class="responsive-img materialboxed" style="width: 15%; border-radius: 50%;" >
+              
+              <p class="indigo-text">I am Oluyede Segun(junior), a computer scientist in  <a  href="https://www.futa.edu.ng/">futa.</a></p>
+              
+              <p class="indigo-text">I developed this carreer app to help build ideas in all areas of life.</p>
+              
+          </div>
+          <div id="aboutapp" class="col s12">
+              <p class="flow-text indigo-text text-darken-4">CJAPP</p>
+              <p class="indigo-text">A fun educative application. It is a career app that helps to build ideas in all areas of life.</p>
+              <p class="indigo-text">All you have to do is sign up and choose a carreer you are interested in.</p>
+              <p class="indigo-text"> Once you Signup and login you will have access to all the features of the app stated above.</p>
+             
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- footer -->
+  <footer class="page-footer  scrollspy z-depth-0 grey lighten-2" id="Connect" >
+    <div class=" container">
+      <div class="row">
+        
+        <div class="col l4 s6">
+          <h5 class="black-text">Connect</h5>
+
+          
+          
+            <a href="https://www.instagram.com/oluyedesege/" class=" btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram"> 
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://web.facebook.com/oluyede.olusegunjunior" class=" btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/oluyedejun1" class=" btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/oluyede-juniorboy-a5550b167/" class=" btn-floating btn-small indigo darken-4">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          <p>
+        </div>
+        <hr>
+        <div class=" black-text col s6 l5 offset-l2">FEEDBACK
+          
+
+          
+          
+          <form id="" class=" black-text"  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{form.as_p}}
+            
+            <button class="btn yellow darken-2 z-depth-0">Send feedback</button> 
+
+            
+          
+          </form>
+            
+             
+
+           
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="footer-copyright grey darken-4">
+      <div class="container center-align">&copy; 2019 CJapp <i class="material-icons">phone</i>+2348146640448
+      </div>
+      
+     
+    </div>
+  </footer>
+
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+
+  <script type="text/javascript">
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+      var modals = document.querySelectorAll('.modal');
+      M.Modal.init(modals);
+    
+      var items = document.querySelectorAll('.collapsible');
+      M.Collapsible.init(items);
+
+      
+    
+    });
+
+
+
+  </script>
+
+
+
+
+<script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('.materialboxed').materialbox();
+      $('.tabs').tabs();
+      $('.scrollspy').scrollSpy();
+      $('.tooltipped').tooltip();
+      $('.dropdown-trigger').dropdown();
+      $('.slider').slider({full_width: true});
+     
+      
+    });
+
+    
+      
+    
+
+</script>
+
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+
+ 
+</body>
+</html>
+
+{% endblock %}

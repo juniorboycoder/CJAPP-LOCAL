@@ -1,0 +1,137 @@
+
+
+{% block body%}
+
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  {% load staticfiles %}
+  
+ 
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>djangoapp</title>
+
+  
+</head>
+<body class="grey lighten-3"">
+
+  <!-- NAVBAR -->
+  <div class="navbar-fixed">
+    <nav class="z-depth-0 yellow lighten-4">
+      <div class="nav-wrapper container">
+        <a href="{% url 'djapp:homeapp' %}" class="brand-logo blue-text"  style="font-family: cursive;"> <i class="material-icons blue-text">filter_drama</i> Cjapp</a>
+
+            <!-- NAVBAR DROPDOWN -->
+        <a href="#" class="sidenav-trigger" data-target="mobile dropdownlinks">
+          <i class="material-icons blue-text">menu</i>
+        </a>
+        
+        <a href="{% url 'djapp:AddNotes' pk=user.pk %}" class=" black-text right sidenav-trigger tooltipped" data-tooltip="You"   >
+            <i class="material-icons">account_circle</i>
+              
+        </a>
+
+        <a href="{% url 'djapp:logout_user' %}" class="black-text right sidenav-trigger tooltipped"  data-tooltip="Logout">
+        <i class="material-icons">exit_to_app</i>
+        </a>
+      
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="">
+               
+                <a  href="{% url 'djapp:AddNotes' pk=user.pk %}" class=" modal-trigger black-text tooltipped" data-target="modal-account" data-tooltip="You">
+                   
+                 <i class="material-icons">account_circle</i>
+               
+               </a>
+              
+            </li>
+          <li class="">
+              <a href="{% url 'djapp:logout_user' %}" class="grey-text" id="logout">Logout</a>
+          </li>
+            
+            
+          </span>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <ul id="mobile dropdownlinks" class="sidenav">
+      <li class="">
+          <a href="{% url 'djapp:AddNotes' pk=user.pk %}" class="blue-text modal-trigger" style="font-family: cursive;" data-target="modal-account"> {{user.username}} <i class="material-icons">person</i></a>
+      </li>
+      <li class="">
+        <a href="{% url 'djapp:logout_user' %}" class="grey-text" id="logout">Logout</a>
+      </li>
+      
+     
+    </span>
+  </ul>
+
+
+  <div class="container" style="margin-top: 40px;">
+    
+
+    <div class="row">
+        
+
+
+        <div class="col s12 l6">
+          <div class="card">
+            <div class="card-image " ></div>
+
+            
+            
+             
+            <div class="card-action">
+                  
+                 {% for user in users|dictsort:"username" %}
+                    <a href="{% url 'djapp:profile2' pk=user.pk %}">
+                        <p class="blue-text">{{ user.username }} <i class="material-icons">account_box</i></p>
+                    </a>
+                 {%endfor%}
+              </div>
+          </div>
+        
+          
+        </div>
+
+
+       
+       
+
+    </div>
+
+  
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  
+
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('.materialboxed').materialbox();
+    });
+  </script>
+
+ 
+</body>
+</html>
+
+{% endblock %}
